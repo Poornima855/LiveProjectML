@@ -4,7 +4,7 @@ from src.logger import logging
 from src.exception import CustomException
 import pandas as pd  # type: ignore
 from sklearn.model_selection import train_test_split # type: ignore
-from dataclasses import dataclass  # type: ignore
+from dataclasses import dataclass 
 
 #Step1: Create path variables 
 

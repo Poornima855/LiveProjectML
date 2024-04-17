@@ -1,6 +1,6 @@
 import os 
 import sys   
-import pickle     
+import pickle  
 from src.exception import CustomException
 from sklearn.metrics import r2_score # type: ignore
 

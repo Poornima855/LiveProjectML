@@ -1,2 +1,7 @@
-pandas
-numpy
+pandas 
+numpy 
+seaborn
+flask 
+typing 
+pickles
+-e .
