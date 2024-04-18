@@ -4,16 +4,16 @@ from src.logger import logging
 from src.exception import CustomException
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from dataclasses import dataclass
+from dataclasses import dataclass # type: ignore
 
 
 
 ## Step1: Create path variables to store the files are raw csv 
 @dataclass
 class DataIngestionconfig:
-    train_data_path:str=os.path.join('artifacts','train.csv')
-    test_data_path:str=os.path.join('artifacts','test.csv')
-    raw_data_path:str=os.path.join('artifacts','raw.csv')
+    train_data_path:str=os.path.join('D:\\3i_code\\artifacts','train.csv')
+    test_data_path:str=os.path.join('D:\\3i_code\\artifacts','test.csv')
+    raw_data_path:str=os.path.join('D:\\3i_code\\artifacts','raw.csv')
 
 ## create a class for Data Ingestion
 class DataIngestion:
@@ -21,9 +21,9 @@ class DataIngestion:
         self.ingestion_config=DataIngestionconfig()
 
     def initiate_data_ingestion(self):
-        logging.info('Data Ingestion methods Starts')
+        logging.info('Data Ingestion methods Starts')  
         try:
-            df=pd.read_csv(os.path.join('notebooks/data','gemstone.csv'))
+            df=pd.read_csv(os.path.join('D:\\3i_code\\notebooks\\data','gemstone.csv'))
             logging.info('Dataset read as pandas Dataframe')
 
             os.makedirs(os.path.dirname(self.ingestion_config.raw_data_path),exist_ok=True)
@@ -31,8 +31,12 @@ class DataIngestion:
             logging.info('Train test split')
             train_set,test_set=train_test_split(df,test_size=0.30,random_state=42)
 
+            print("train test spilt completed")
+
             train_set.to_csv(self.ingestion_config.train_data_path,index=False,header=True)
             test_set.to_csv(self.ingestion_config.test_data_path,index=False,header=True)
+
+            print("ingestion end")
 
             logging.info('Ingestion of Data is completed')
 
