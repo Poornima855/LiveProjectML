@@ -1,7 +1,8 @@
 pandas 
 numpy 
-seaborn
 flask 
-typing 
-pickles
+scikit-learn
+seaborn
+datetime
+logging
 -e .
